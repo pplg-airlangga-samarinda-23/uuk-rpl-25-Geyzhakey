@@ -1,0 +1,21 @@
+body {
+    background-color: aqua ;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.card {
+    margin-top: 15%;
+    margin-left: 0%;
+    display: inline-block;
+    background-color: blue ;
+    box-shadow: 0 4px 8px rgba(0,0,0,0,0.1);
+    padding: 30px 40px;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 300px;
+    height: 300px;
+
+}

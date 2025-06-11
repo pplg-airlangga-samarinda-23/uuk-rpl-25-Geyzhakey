@@ -2,7 +2,9 @@
 require 'koneksi.php';
 
 $sql = "SELECT * FROM kader";
-$row = $koneksi->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
+$row = $db->prepare("SELECT * FROM `kader`");
+$row->execute();
+
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +28,7 @@ $row = $koneksi->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
         </tr>
         </thead>
         <tbody>
-            <?php $no = 0; foreach ($row as $rows) : ?>
+            <?php $no = 0; foreach ($row->fetchAll(PDO::FETCH_ASSOC) as $rows) : ?>
           <tr>
             <td><?php ++$no?></td>
             <td><?= $rows["Nama"] ?></td>
@@ -36,7 +38,7 @@ $row = $koneksi->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
             <td><?= $rows["Berat_badan"] ?></td>
             <td>
                 <a href="#">edit</a>/
-                <a href="hapus.php?id=<?= $rows['id'] ?>" onclick="return confirm('Yakin ingin menghapus?')">hapus</a>
+                <a href="hapus.php<?= $rows['Id']  ?>"onclick="return confirm('Yakin ingin menghapus?')">hapus</a>
             </td>
           </tr>
           <?php endforeach; ?>

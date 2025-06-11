@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $Berat_Badan = $_POST['Berat_badan'];
 
     try {
-      $sql = "INSERT INTO member (Nama,Gender,Umur,Tinggi_badan,Berat_badan) VALUES (?, ?, ?, ?, ?, ?)";
+      $sql = "INSERT INTO kader (Nama,Gender,Umur,Tinggi_badan,Berat_badan) VALUES (?,?,?,?,?)";
         $stmt = $db->prepare($sql);
         if ($stmt->execute([$Nama, $Gender, $Umur, $Tinggi_Badan, $Berat_Badan])) {
             echo "<p style='color: green; text-align: center;'>Data successfully submitted!</p>";
@@ -110,16 +110,16 @@ h1 {
       <form action="" method="POST">
         <h1 style="text-align: center;">Posyandu</h1>
         <label for="nama">Nama</label> <br>
-        <input type="text" name="nama" id="nama" required> <br>
+        <input type="text" name="Nama" id="Nama" required> <br>
 
         <label for="gender">Gender</label> <br>
-        <select name="gender" id="gender" required>
+        <select name="Gender" id="Gender" required>
             <option value="cowok">cowok</option>
             <option value="cewek">cewek</option>
         </select> <br>
 
         <label for="umur">Umur(bulan)</label> <br>
-        <input type="number" name="umur" id="umur" required> <br>
+        <input type="number" name="Umur" id="Umur" required> <br>
 
         <label for="Tinggi_badan">Tinggi Badan(cm)</label> <br>
         <input type="number" name="Tinggi_badan" id="Tinggi_badan" required> <br>
